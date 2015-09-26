@@ -39,7 +39,7 @@ Prerequisites:
 - You have a flask appplication committed to a local git repository(Part A)
 - You have the heroku cli installed
 - you have the heroku pipelines pluging installed
--
+
 
 heroku plugins:install heroku-pipelines
 
