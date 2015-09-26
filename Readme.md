@@ -1,4 +1,4 @@
-A-River Bed Repo Cloning to setup a new project
+A-Riverbed Repo Cloning to setup a new project
 
 Prerequisites:
 
@@ -38,8 +38,14 @@ Prerequisites:
 
 - You have a flask appplication committed to a local git repository(Part A)
 - You have the heroku cli installed
-- you have the heroku pipelines pluging installed
 
+https://devcenter.heroku.com/articles/heroku-command#installing-the-heroku-cli
+
+-- heroku update
+-- heroku --version
+-- which heroku
+
+- you have the heroku pipelines pluging installed
 
 heroku plugins:install heroku-pipelines
 
@@ -48,30 +54,34 @@ Create the Heroku deployment pipeline:
 
 - cd yourapp
 - heroku login
-- heroku apps:create yourapp
-- heroku dyno:type web=hobby -a yourapp
+- heroku create yourapp --buildpack git://github.com/heroku/heroku-buildpack-python.git
+- #heroku buildpacks:set -a yourapp git://github.com/heroku/heroku-buildpack-python.git
 - heroku apps
 - git push heroku master
-- heroku ps:scale web=1 -a yourapp
+- heroku ps:scale web=1:hobby -a yourapp
 - heroku logs --tail -a yourapp
 - heroku ps
 - heroku open
 - heroku fork --from yourapp --to yourapp-staging
 - heroku apps
-- heroku info -a yourapp-staging
+- heroku apps:info -a yourapp-staging
 - git remote add yourapp-staging git@heroku.com:yourapp-staging.git
-- heroku addons:destroy ssl  -a yourapp-staging
-- heroku info -a yourapp-staging
+- heroku addons:destroy ssl -a yourapp-staging
+- heroku apps:info -a yourapp-staging
 - git remote -v
 - git remote rm heroku
 - git remote -v
 - git push yourapp-staging master
-- heroku ps:scale web=1 -a yourapp-staging
+- heroku ps:scale web=1:hobby -a yourapp-staging
+
+
 - heroku pipelines:create -a yourapp
-- heroku pipelines:add -a yourapp yourapp-staging
-- #explicit add
-- #heroku pipelines:add -a yourapp -s production
-- #heroku pipelines:add -a yourapp-staging -s staging
+- #heroku pipelines:create yourapp -a yourapp -s production
+- heroku pipelines:add yourapp -a yourapp-staging -s staging
+- heroku pipelines:list
+- heroku pipelines:info yourapp
+
+
 - #make a code change then push to staging and promote
 - git push yourapp-staging master
 - heroku pipelines:promote -a yourapp-staging
