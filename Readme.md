@@ -85,7 +85,5 @@ Create the Heroku deployment pipeline:
 - #make a code change then push to staging and promote
 - git push yourapp-staging master
 - heroku pipelines:promote -a yourapp-staging
-- heroku pipelines
-- heroku pipelines:diff
 
 
