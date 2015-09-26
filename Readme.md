@@ -2,11 +2,11 @@ A-River Bed Repo Cloning to setup a new project
 
 Prerequisites:
 
-1-Setup a completely empty repo on github named yourapp
-2-install git
-3-install python
-4-install virtualenv
-5-install npm
+- setup a completely empty repo on github named yourapp
+- install git
+- install python
+- install virtualenv
+- install npm
 
 
 Create a new app by cloning and modifying riverbed:
@@ -36,9 +36,11 @@ B-Setup a deployment pipeline on heroku
 
 Prerequisites:
 
-1-You have a flask appplication committed to a local git repository(Part A)
-2-You have the heroku cli installed
-3-you have the heroku pipelines pluging installed
+- You have a flask appplication committed to a local git repository(Part A)
+- You have the heroku cli installed
+- you have the heroku pipelines pluging installed
+-
+
 heroku plugins:install heroku-pipelines
 
 
