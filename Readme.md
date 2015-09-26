@@ -11,8 +11,8 @@ Prerequisites:
 
 Create a new app by cloning and modifying riverbed:
 
-git clone git@github.com:aregsar/riverbed.git yourapp
-cd yourapp
+- git clone git@github.com:aregsar/riverbed.git yourapp
+- cd yourapp
 rm -rf .git
 cp .env.example .env
 virtualenv -p $(which python) venv
