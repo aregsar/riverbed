@@ -1,5 +1,24 @@
+machine:
+  timezone:
+    America/Los_Angeles
+
+  python:
+    version: 2.7.10
+
+  environment:
+    CIRCLE_ENV: test
+    DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+
+dependencies:
+  override:
+    - pip install -r requirements.txt
+
+test:
+  override:
+    - nosetests
+
 deployment:
   staging:
     branch: master
     heroku:
-      appname: riverbed-stage
+      appname: yourapp-staging

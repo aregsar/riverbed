@@ -87,3 +87,35 @@ Create the Heroku deployment pipeline:
 - heroku pipelines:promote -a yourapp-staging
 
 
+- heroku releases -a yourapp
+- heroku releases -a yourapp-staging
+- heroku releases:info -a yourapp v6
+
+===========================================================================
+https://circleci.com/docs/config-sample
+https://circleci.com/docs/configuration
+
+Circle CI database overrides
+
+## Customize database setup
+database:
+  override:
+    - python manage.py db:upgrade
+    - mysql -u ubuntu circle_test < my-database-setup.sql
+
+dependencies:
+  override:
+    - pip install -r requirements.txt
+    - npm install --dev
+    - npm run bower install
+
+machine:
+  node:
+    version: 0.11.16
+
+test:
+  override:
+    - nosetests ./tests
+
+
+
